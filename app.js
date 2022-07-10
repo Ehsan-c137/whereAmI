@@ -69,7 +69,6 @@ function renderCountry(data) {
    flagImage.src = data[0].flags.svg;
    countryName.textContent = data[0].name.common;
    countryRegion.textContent = data[0].region;
-   countryPopulation.textContent = data[0].population;
-
+   countryPopulation.textContent = data[0].population.toLocaleString();
    // countryCurrency.textContent = data[0].currencies;
 }
