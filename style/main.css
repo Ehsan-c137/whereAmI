@@ -21,6 +21,8 @@ main {
   place-items: center;
   gap: 1rem;
   height: 100vh;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#e6e9f0), to(#eef1f5));
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
 
 .country__card {
@@ -34,6 +36,7 @@ main {
   transition: 0.6s;
   opacity: 0;
   border-radius: 6px;
+  background-color: white;
 }
 
 .country__flag {
@@ -62,7 +65,8 @@ main {
 .button {
   cursor: pointer;
   padding: 1rem 2rem;
-  background-color: rgba(127, 255, 212, 0.424);
+  background-color: rgba(7, 251, 121, 0.45);
+  color: black;
   border-radius: 6px;
   border: 1px solid transparent;
   -webkit-transition: 0.3s all;
