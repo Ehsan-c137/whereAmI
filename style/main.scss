@@ -1,0 +1,50 @@
+@import "_reset.scss";
+
+main {
+   display: grid;
+   grid-template-columns: 1fr;
+   place-items: center;
+   gap: 1rem;
+   height: 100vh;
+}
+
+.country {
+   &__card {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.264);
+      transition: 0.6s;
+      opacity: 0;
+      border-radius: 6px;
+   }
+   &__flag {
+      width: 30rem;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+   }
+   &__data {
+      display: flex;
+      flex-direction: column;
+      font-size: 1.8rem;
+      gap: 1rem;
+      padding: 2rem;
+   }
+}
+
+.button {
+   cursor: pointer;
+   padding: 1rem 2rem;
+   background-color: rgba(127, 255, 212, 0.424);
+   border-radius: 6px;
+   border: 1px solid transparent;
+   transition: 0.3s all;
+   &:hover {
+      background-color: rgb(191, 170, 16);
+      color: white;
+   }
+   &:active {
+      background-color: green;
+      color: white;
+   }
+}
