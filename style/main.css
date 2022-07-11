@@ -82,4 +82,43 @@ main {
   background-color: green;
   color: white;
 }
+
+.error__card {
+  position: fixed;
+  top: 50px;
+  padding: 3rem 4rem;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transform: translateY(-20rem);
+          transform: translateY(-20rem);
+  font-size: 2.4rem;
+  background-color: #e84855;
+  color: #e6e9f0;
+  border-radius: 8px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.error__card__close {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  place-items: center;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  background-color: #e6e9f0;
+  cursor: pointer;
+}
+
+.error__card-active {
+  z-index: 1;
+  -webkit-transform: translateY(0rem);
+          transform: translateY(0rem);
+}
 /*# sourceMappingURL=main.css.map */

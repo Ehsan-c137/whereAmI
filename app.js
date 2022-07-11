@@ -19,14 +19,20 @@ const onSuccess = (position) => {
 const onError = (error) => {
    switch (error.code) {
       case error.PERMISSION_DENIED:
+         renderErr("User denied the request for Geolocation.");
          return "User denied the request for Geolocation.";
 
       case error.POSITION_UNAVAILABLE:
+         renderErr("Location information is unavailable.");
+
          return "Location information is unavailable.";
 
       case error.TIMEOUT:
+         renderErr("The request to get user location timed out.");
+
          return "The request to get user location timed out.";
       case error.UNKNOWN_ERROR:
+         renderErr("An unknown error occurred.");
          return "An unknown error occurred.";
       default:
          return " this is work";
@@ -44,7 +50,10 @@ function whereAmI(lat, lon) {
    const key = "13568997686770149542x116844";
    fetch(`https://geocode.xyz/${lat},${lon}?geoit=json&auth=${key}`)
       .then((res) => {
-         if (!res.ok) throw new Error(`Problem with geocoding. ${res.status}`);
+         if (!res.ok) {
+            renderErr(`country not found! ${res.status}`);
+            throw new Error(`Problem with geocoding. ${res.status}`);
+         }
 
          return res.json();
       })
@@ -53,6 +62,7 @@ function whereAmI(lat, lon) {
       })
       .then((res) => {
          if (!res.ok) {
+            renderErr(`country not found! ${res.status}`);
             throw new Error(`country not found! ${res.status}`);
          }
          return res.json();
@@ -72,3 +82,16 @@ function renderCountry(data) {
    countryPopulation.textContent = data[0].population.toLocaleString();
    // countryCurrency.textContent = data[0].currencies;
 }
+const errCardText = document.querySelector(".error__card__text");
+const errCard = document.querySelector(".error__card");
+const errClose = document.querySelector(".error__card__close");
+
+function renderErr(err) {
+   errCard.style.opacity = 1;
+   errCard.classList.add("error__card-active");
+   errCardText.textContent = err;
+}
+
+errClose.addEventListener("click", function () {
+   errCard.classList.remove("error__card-active");
+});
